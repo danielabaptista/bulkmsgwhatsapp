@@ -14,7 +14,13 @@ browser.get("https://web.whatsapp.com/")
 
 #input("press any key once you've scanned QR code: ")
 #print("QR Code Scanned Successfully")
+contact="Diego Alemania"
 
 search_xpath = '//*[@id="side"]/div[1]/div/label/div/div[2]'
 search_box = WebDriverWait(browser,400).until(EC.presence_of_element_located((By.XPATH,search_xpath)))
-search_box.send_keys("Diego")
+search_box.send_keys(contact)
+
+contact_xpath = f'//span[@title="{contact}"]'
+contact_title = browser.find_element_by_xpath(contact_xpath)
+
+contact_title.click()
